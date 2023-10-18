@@ -28,4 +28,5 @@ namespace CozaStore.Models;
         [ForeignKey("CategoriaPaiId")]
 
         public Categoria CategoriaPai {get; set; }
+         public ICollection<ProdutoCategoria> Produtos { get; set; }
     }
