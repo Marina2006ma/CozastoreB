@@ -6,7 +6,7 @@ namespace CozaStore.Data;
 
     public class AppDbContext : IdentityDbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
@@ -101,6 +101,35 @@ namespace CozaStore.Data;
                 .HasOne(pe => pe.Tamanho)
                 .WithMany(t => t.Estoques)
                 .HasForeignKey(pe => pe.TamanhoId);
+        #endregion
+
+        #region Relacionamento Muitos para Muitos - CarrinhoProduto
+             builder.Entity<CarrinhoProduto>().HasKey(
+                cp => new { cp.CarrinhoId, cp.ProdutoEstoqueId }
+            );
+            builder.Entity<CarrinhoProduto>()
+                .HasOne(cp => cp.Carrinho)
+                .WithMany(c => c.Produtos)
+                .HasForeignKey(cp => cp.CarrinhoId);
+            builder.Entity<CarrinhoProduto>()
+                .HasOne(cp => cp.ProdutoEstoque)
+                .WithMany(pe => pe.Carrinhos)
+                .HasForeignKey(cp => cp.ProdutoEstoqueId);
+                  
+        #endregion
+    
+        #region Relacionamento de Muitos para muitos - ListaDesejo
+            builder.Entity<ListaDesejo>().HasKey(
+                ld => new { ld.ProdutoId, ld.UsuarioId}
+            );
+            builder.Entity<ListaDesejo>()
+                .HasOne(ld => ld.Produto)
+                .WithMany(p => p.ListaDesejos)
+                .HasForeignKey(ld => ld.ProdutoId);
+            builder.Entity<ListaDesejo>()
+                .HasOne(ld => ld.Usuario)
+                .WithMany(u => u.ListaDesejos)
+                .HasForeignKey(ld => ld.UsuarioId);
         #endregion
     }
 

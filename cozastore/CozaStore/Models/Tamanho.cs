@@ -9,7 +9,7 @@ namespace CozaStore.Models;
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
         [Required(ErrorMessage = "Informe a Sigla")]
         [StringLength(5, ErrorMessage = "A Sigla deve possuir no máximo 5 caracteres")]

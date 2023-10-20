@@ -8,7 +8,7 @@ namespace CozaStore.Models;
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
         [Required(ErrorMessage = "Informe o Nome")]
         [StringLength(60, ErrorMessage = "O Nome deve possuir no máximo 60 caracteres")]

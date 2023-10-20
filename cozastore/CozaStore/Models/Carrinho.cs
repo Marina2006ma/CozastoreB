@@ -22,5 +22,5 @@ namespace CozaStore.Models;
         [Display(Name = "Data de Modificação")]
         public DateTime? DataModificacao{get; set; } 
 
-        
+        public ICollection<CarrinhoProduto> Produtos { get; set; }
     }
