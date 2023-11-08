@@ -1,4 +1,5 @@
 using System.Net.Mail;
+using System.Security.Claims;
 using CozaStore.Data;
 using CozaStore.ViewModels.Account;
 using Microsoft.AspNetCore.Identity;
@@ -68,6 +69,24 @@ namespace CozaStore.Controllers;
             }
             return View(login);
         }
+
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public async Task<IActionResult> Logout()
+        {
+          _logger.LogInformation($"Usuário {ClaimTypes.Email} fez logoff");
+         await _signInManager.SignOutAsync();
+         return RedirectToAction("Index", "Home");
+        }
+
+
+    [HttpGet]
+    public IActionResult Register()
+    {
+        RegisterVM register = new();
+        return View(register);
+    }
+
 
         public static bool IsValidEmail(string email)
         {

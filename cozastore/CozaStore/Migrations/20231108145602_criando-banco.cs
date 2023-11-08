@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CozaStore.Migrations
 {
-    public partial class criarbanco : Migration
+    public partial class criandobanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -565,6 +565,381 @@ namespace CozaStore.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "c57fbe97-3201-4f8d-96b6-e200948d42b0", "24f0c24b-be9a-48e9-81b5-f3667aa32773", "Administrador", "ADMINISTRADOR" },
+                    { "dc8922a9-f1bb-4800-9b83-d5803a88cb97", "71a43e4a-fc73-4e5b-9094-7239b1fbcbdf", "Funcionário", "FUNCIONARIO" },
+                    { "f0fca01d-1139-4fc7-a540-7b7f2fd97cdb", "45e68fab-e759-4ad5-bc32-47e24478faee", "Cliente", "CLIENTE" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "895d2c24-8ef6-45a8-ba73-430b5a730e91", 0, "fccf60c2-7352-433e-a747-449355686649", "admin@cozastore.com", true, false, null, "ADMIN@COZASTORE.COM", "ADMIN", "AQAAAAEAACcQAAAAEPiMe8hKFY41p8jCrlzBTYliC3idt3uYrVH62GfplZ0UL4/jDdDo38ZqrWkshzj/LQ==", null, false, "b7c8284b-9e04-40ca-b7ad-b33f9e79e5f6", false, "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "Categoria",
+                columns: new[] { "Id", "Banner", "CategoriaPaiId", "Filtrar", "Foto", "Nome" },
+                values: new object[,]
+                {
+                    { (byte)1, true, null, true, "images/categorias/1.jpg", "Feminina" },
+                    { (byte)2, true, null, true, "images/categorias/2.jpg", "Masculina" },
+                    { (byte)3, true, null, false, "images/categorias/3.jpg", "Acessórios" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cor",
+                columns: new[] { "Id", "CodigoHexa", "Nome" },
+                values: new object[,]
+                {
+                    { (byte)1, "#222", "Preto" },
+                    { (byte)2, "#4272d7", "Azul" },
+                    { (byte)3, "#b3b3b3", "Cinza" },
+                    { (byte)4, "#00ad5f", "Verde" },
+                    { (byte)5, "#fa4251", "Vermelho" },
+                    { (byte)6, "#aaa", "Branco" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Produto",
+                columns: new[] { "Id", "DescricaoCompleta", "DescricaoResumida", "Destaque", "Dimensao", "Material", "Nome", "Peso", "Preco", "PrecoDesconto", "SKU" },
+                values: new object[,]
+                {
+                    { 1, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Camiseta Esprit Ruffle", 0m, 20.64m, 20.64m, "CAM-01" },
+                    { 2, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Camiseta Herschel supply", 0m, 35.31m, 35.31m, "CAM-02" },
+                    { 3, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Camiseta Quadriculada", 0m, 25.50m, 25.50m, "CAM-03" },
+                    { 4, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Casaco Classic Trench", 0m, 75.25m, 75.25m, "CAS-01" },
+                    { 5, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Lightweight Jacket", 0m, 53.0m, 53.0m, "COJ-01" },
+                    { 6, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Femme T-Shirt In Stripe", 0m, 25.85m, 25.85m, "CAM-06" },
+                    { 7, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Camiseta Herschel supply", 0m, 63.16m, 63.16m, "CAM-09" },
+                    { 8, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Camiseta T-Shirt with Sleeve", 0m, 18.49m, 18.49m, "CAM-14" },
+                    { 9, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Relógio Vintage Classic", 0m, 93.20m, 93.20m, "REL-01" },
+                    { 10, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Tênis All Star Hi Plimsolls", 0m, 75.0m, 75.0m, "CAL-09" },
+                    { 11, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Cinto de Couro", 0m, 63.15m, 63.15m, "CIN-04" },
+                    { 12, "Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.", "Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat", true, null, null, "Mini Silver Mesh Watch", 0m, 86.85m, 86.85m, "REL-04" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tag",
+                columns: new[] { "Id", "Nome" },
+                values: new object[,]
+                {
+                    { (byte)1, "Fashion" },
+                    { (byte)2, "LifeStyle" },
+                    { (byte)3, "Denim" },
+                    { (byte)4, "StreetStyle" },
+                    { (byte)5, "Crafts" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tamanho",
+                columns: new[] { "Id", "Nome", "Sigla" },
+                values: new object[,]
+                {
+                    { (byte)1, "Pequeno", "P" },
+                    { (byte)2, "Médio", "M" },
+                    { (byte)3, "Grande", "G" },
+                    { (byte)4, "Extra Grande", "GG" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "c57fbe97-3201-4f8d-96b6-e200948d42b0", "895d2c24-8ef6-45a8-ba73-430b5a730e91" },
+                    { "dc8922a9-f1bb-4800-9b83-d5803a88cb97", "895d2c24-8ef6-45a8-ba73-430b5a730e91" },
+                    { "f0fca01d-1139-4fc7-a540-7b7f2fd97cdb", "895d2c24-8ef6-45a8-ba73-430b5a730e91" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categoria",
+                columns: new[] { "Id", "Banner", "CategoriaPaiId", "Filtrar", "Foto", "Nome" },
+                values: new object[,]
+                {
+                    { (byte)4, false, (byte)3, true, "", "Bolsas" },
+                    { (byte)5, false, (byte)3, true, "", "Calçados" },
+                    { (byte)6, false, (byte)3, true, "", "Relógios" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoCategoria",
+                columns: new[] { "CategoriaId", "ProdutoId" },
+                values: new object[,]
+                {
+                    { (byte)1, 1 },
+                    { (byte)1, 2 },
+                    { (byte)2, 3 },
+                    { (byte)1, 4 },
+                    { (byte)2, 5 },
+                    { (byte)1, 6 },
+                    { (byte)2, 7 },
+                    { (byte)1, 8 },
+                    { (byte)3, 11 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoEstoque",
+                columns: new[] { "Id", "CorId", "Preco", "PrecoDesconto", "ProdutoId", "QtdeEstoque", "TamanhoId" },
+                values: new object[,]
+                {
+                    { 1, (byte)1, null, null, 1, 41, (byte)1 },
+                    { 2, (byte)1, null, null, 1, 6, (byte)2 },
+                    { 3, (byte)1, null, null, 1, 45, (byte)3 },
+                    { 4, (byte)1, null, null, 1, 43, (byte)4 },
+                    { 5, (byte)2, null, null, 1, 30, (byte)1 },
+                    { 6, (byte)2, null, null, 1, 45, (byte)2 },
+                    { 7, (byte)2, null, null, 1, 20, (byte)3 },
+                    { 8, (byte)2, null, null, 1, 45, (byte)4 },
+                    { 9, (byte)3, null, null, 1, 34, (byte)1 },
+                    { 10, (byte)3, null, null, 1, 32, (byte)2 },
+                    { 11, (byte)3, null, null, 1, 30, (byte)3 },
+                    { 12, (byte)3, null, null, 1, 15, (byte)4 },
+                    { 13, (byte)4, null, null, 1, 26, (byte)1 },
+                    { 14, (byte)4, null, null, 1, 10, (byte)2 },
+                    { 15, (byte)4, null, null, 1, 42, (byte)3 },
+                    { 16, (byte)4, null, null, 1, 19, (byte)4 },
+                    { 17, (byte)5, null, null, 1, 20, (byte)1 },
+                    { 18, (byte)5, null, null, 1, 47, (byte)2 },
+                    { 19, (byte)5, null, null, 1, 31, (byte)3 },
+                    { 20, (byte)5, null, null, 1, 5, (byte)4 },
+                    { 21, (byte)6, null, null, 1, 13, (byte)1 },
+                    { 22, (byte)6, null, null, 1, 15, (byte)2 },
+                    { 23, (byte)6, null, null, 1, 16, (byte)3 },
+                    { 24, (byte)6, null, null, 1, 11, (byte)4 },
+                    { 25, (byte)1, null, null, 2, 27, (byte)1 },
+                    { 26, (byte)1, null, null, 2, 15, (byte)2 },
+                    { 27, (byte)1, null, null, 2, 9, (byte)3 },
+                    { 28, (byte)1, null, null, 2, 44, (byte)4 },
+                    { 29, (byte)2, null, null, 2, 38, (byte)1 },
+                    { 30, (byte)2, null, null, 2, 11, (byte)2 },
+                    { 31, (byte)2, null, null, 2, 36, (byte)3 },
+                    { 32, (byte)2, null, null, 2, 34, (byte)4 },
+                    { 33, (byte)3, null, null, 2, 29, (byte)1 },
+                    { 34, (byte)3, null, null, 2, 10, (byte)2 },
+                    { 35, (byte)3, null, null, 2, 31, (byte)3 },
+                    { 36, (byte)3, null, null, 2, 35, (byte)4 },
+                    { 37, (byte)4, null, null, 2, 7, (byte)1 },
+                    { 38, (byte)4, null, null, 2, 10, (byte)2 },
+                    { 39, (byte)4, null, null, 2, 1, (byte)3 },
+                    { 40, (byte)4, null, null, 2, 40, (byte)4 },
+                    { 41, (byte)5, null, null, 2, 46, (byte)1 },
+                    { 42, (byte)5, null, null, 2, 48, (byte)2 },
+                    { 43, (byte)5, null, null, 2, 38, (byte)3 },
+                    { 44, (byte)5, null, null, 2, 39, (byte)4 },
+                    { 45, (byte)6, null, null, 2, 1, (byte)1 },
+                    { 46, (byte)6, null, null, 2, 27, (byte)2 },
+                    { 47, (byte)6, null, null, 2, 31, (byte)3 },
+                    { 48, (byte)6, null, null, 2, 33, (byte)4 },
+                    { 49, (byte)1, null, null, 3, 15, (byte)1 },
+                    { 50, (byte)1, null, null, 3, 16, (byte)2 },
+                    { 51, (byte)1, null, null, 3, 38, (byte)3 },
+                    { 52, (byte)1, null, null, 3, 2, (byte)4 },
+                    { 53, (byte)2, null, null, 3, 11, (byte)1 },
+                    { 54, (byte)2, null, null, 3, 26, (byte)2 },
+                    { 55, (byte)2, null, null, 3, 31, (byte)3 },
+                    { 56, (byte)2, null, null, 3, 42, (byte)4 },
+                    { 57, (byte)3, null, null, 3, 40, (byte)1 },
+                    { 58, (byte)3, null, null, 3, 7, (byte)2 },
+                    { 59, (byte)3, null, null, 3, 11, (byte)3 },
+                    { 60, (byte)3, null, null, 3, 5, (byte)4 },
+                    { 61, (byte)4, null, null, 3, 30, (byte)1 },
+                    { 62, (byte)4, null, null, 3, 15, (byte)2 },
+                    { 63, (byte)4, null, null, 3, 25, (byte)3 },
+                    { 64, (byte)4, null, null, 3, 46, (byte)4 },
+                    { 65, (byte)5, null, null, 3, 36, (byte)1 },
+                    { 66, (byte)5, null, null, 3, 17, (byte)2 },
+                    { 67, (byte)5, null, null, 3, 11, (byte)3 },
+                    { 68, (byte)5, null, null, 3, 43, (byte)4 },
+                    { 69, (byte)6, null, null, 3, 2, (byte)1 },
+                    { 70, (byte)6, null, null, 3, 31, (byte)2 },
+                    { 71, (byte)6, null, null, 3, 11, (byte)3 },
+                    { 72, (byte)6, null, null, 3, 39, (byte)4 },
+                    { 73, (byte)1, null, null, 4, 25, (byte)1 },
+                    { 74, (byte)1, null, null, 4, 3, (byte)2 },
+                    { 75, (byte)1, null, null, 4, 42, (byte)3 },
+                    { 76, (byte)1, null, null, 4, 8, (byte)4 },
+                    { 77, (byte)2, null, null, 4, 13, (byte)1 },
+                    { 78, (byte)2, null, null, 4, 9, (byte)2 },
+                    { 79, (byte)2, null, null, 4, 27, (byte)3 },
+                    { 80, (byte)2, null, null, 4, 39, (byte)4 },
+                    { 81, (byte)3, null, null, 4, 46, (byte)1 },
+                    { 82, (byte)3, null, null, 4, 13, (byte)2 },
+                    { 83, (byte)3, null, null, 4, 36, (byte)3 },
+                    { 84, (byte)3, null, null, 4, 24, (byte)4 },
+                    { 85, (byte)4, null, null, 4, 49, (byte)1 },
+                    { 86, (byte)4, null, null, 4, 12, (byte)2 },
+                    { 87, (byte)4, null, null, 4, 29, (byte)3 },
+                    { 88, (byte)4, null, null, 4, 9, (byte)4 },
+                    { 89, (byte)5, null, null, 4, 1, (byte)1 },
+                    { 90, (byte)5, null, null, 4, 13, (byte)2 },
+                    { 91, (byte)5, null, null, 4, 20, (byte)3 },
+                    { 92, (byte)5, null, null, 4, 38, (byte)4 },
+                    { 93, (byte)6, null, null, 4, 33, (byte)1 },
+                    { 94, (byte)6, null, null, 4, 9, (byte)2 },
+                    { 95, (byte)6, null, null, 4, 22, (byte)3 },
+                    { 96, (byte)6, null, null, 4, 8, (byte)4 },
+                    { 97, (byte)1, null, null, 5, 29, (byte)1 },
+                    { 98, (byte)1, null, null, 5, 4, (byte)2 },
+                    { 99, (byte)1, null, null, 5, 20, (byte)3 },
+                    { 100, (byte)1, null, null, 5, 32, (byte)4 },
+                    { 101, (byte)2, null, null, 5, 9, (byte)1 },
+                    { 102, (byte)2, null, null, 5, 14, (byte)2 },
+                    { 103, (byte)2, null, null, 5, 46, (byte)3 },
+                    { 104, (byte)2, null, null, 5, 39, (byte)4 },
+                    { 105, (byte)3, null, null, 5, 0, (byte)1 },
+                    { 106, (byte)3, null, null, 5, 17, (byte)2 },
+                    { 107, (byte)3, null, null, 5, 26, (byte)3 },
+                    { 108, (byte)3, null, null, 5, 26, (byte)4 },
+                    { 109, (byte)4, null, null, 5, 18, (byte)1 },
+                    { 110, (byte)4, null, null, 5, 20, (byte)2 },
+                    { 111, (byte)4, null, null, 5, 0, (byte)3 },
+                    { 112, (byte)4, null, null, 5, 22, (byte)4 },
+                    { 113, (byte)5, null, null, 5, 36, (byte)1 },
+                    { 114, (byte)5, null, null, 5, 45, (byte)2 },
+                    { 115, (byte)5, null, null, 5, 33, (byte)3 },
+                    { 116, (byte)5, null, null, 5, 27, (byte)4 },
+                    { 117, (byte)6, null, null, 5, 32, (byte)1 },
+                    { 118, (byte)6, null, null, 5, 7, (byte)2 },
+                    { 119, (byte)6, null, null, 5, 43, (byte)3 },
+                    { 120, (byte)6, null, null, 5, 23, (byte)4 },
+                    { 121, (byte)1, null, null, 6, 2, (byte)1 },
+                    { 122, (byte)1, null, null, 6, 41, (byte)2 },
+                    { 123, (byte)1, null, null, 6, 41, (byte)3 },
+                    { 124, (byte)1, null, null, 6, 27, (byte)4 },
+                    { 125, (byte)2, null, null, 6, 34, (byte)1 },
+                    { 126, (byte)2, null, null, 6, 20, (byte)2 },
+                    { 127, (byte)2, null, null, 6, 49, (byte)3 },
+                    { 128, (byte)2, null, null, 6, 29, (byte)4 },
+                    { 129, (byte)3, null, null, 6, 27, (byte)1 },
+                    { 130, (byte)3, null, null, 6, 31, (byte)2 },
+                    { 131, (byte)3, null, null, 6, 49, (byte)3 },
+                    { 132, (byte)3, null, null, 6, 21, (byte)4 },
+                    { 133, (byte)4, null, null, 6, 42, (byte)1 },
+                    { 134, (byte)4, null, null, 6, 5, (byte)2 },
+                    { 135, (byte)4, null, null, 6, 38, (byte)3 },
+                    { 136, (byte)4, null, null, 6, 29, (byte)4 },
+                    { 137, (byte)5, null, null, 6, 36, (byte)1 },
+                    { 138, (byte)5, null, null, 6, 20, (byte)2 },
+                    { 139, (byte)5, null, null, 6, 2, (byte)3 },
+                    { 140, (byte)5, null, null, 6, 26, (byte)4 },
+                    { 141, (byte)6, null, null, 6, 47, (byte)1 },
+                    { 142, (byte)6, null, null, 6, 20, (byte)2 },
+                    { 143, (byte)6, null, null, 6, 43, (byte)3 },
+                    { 144, (byte)6, null, null, 6, 46, (byte)4 },
+                    { 145, (byte)1, null, null, 7, 11, (byte)1 },
+                    { 146, (byte)1, null, null, 7, 37, (byte)2 },
+                    { 147, (byte)1, null, null, 7, 27, (byte)3 },
+                    { 148, (byte)1, null, null, 7, 5, (byte)4 },
+                    { 149, (byte)2, null, null, 7, 22, (byte)1 },
+                    { 150, (byte)2, null, null, 7, 24, (byte)2 },
+                    { 151, (byte)2, null, null, 7, 4, (byte)3 },
+                    { 152, (byte)2, null, null, 7, 1, (byte)4 },
+                    { 153, (byte)3, null, null, 7, 10, (byte)1 },
+                    { 154, (byte)3, null, null, 7, 35, (byte)2 },
+                    { 155, (byte)3, null, null, 7, 22, (byte)3 },
+                    { 156, (byte)3, null, null, 7, 43, (byte)4 },
+                    { 157, (byte)4, null, null, 7, 40, (byte)1 },
+                    { 158, (byte)4, null, null, 7, 30, (byte)2 },
+                    { 159, (byte)4, null, null, 7, 2, (byte)3 },
+                    { 160, (byte)4, null, null, 7, 14, (byte)4 },
+                    { 161, (byte)5, null, null, 7, 27, (byte)1 },
+                    { 162, (byte)5, null, null, 7, 25, (byte)2 },
+                    { 163, (byte)5, null, null, 7, 19, (byte)3 },
+                    { 164, (byte)5, null, null, 7, 40, (byte)4 },
+                    { 165, (byte)6, null, null, 7, 2, (byte)1 },
+                    { 166, (byte)6, null, null, 7, 10, (byte)2 },
+                    { 167, (byte)6, null, null, 7, 26, (byte)3 },
+                    { 168, (byte)6, null, null, 7, 2, (byte)4 },
+                    { 169, (byte)1, null, null, 8, 29, (byte)1 },
+                    { 170, (byte)1, null, null, 8, 46, (byte)2 },
+                    { 171, (byte)1, null, null, 8, 45, (byte)3 },
+                    { 172, (byte)1, null, null, 8, 36, (byte)4 },
+                    { 173, (byte)2, null, null, 8, 43, (byte)1 },
+                    { 174, (byte)2, null, null, 8, 41, (byte)2 },
+                    { 175, (byte)2, null, null, 8, 49, (byte)3 },
+                    { 176, (byte)2, null, null, 8, 21, (byte)4 },
+                    { 177, (byte)3, null, null, 8, 48, (byte)1 },
+                    { 178, (byte)3, null, null, 8, 18, (byte)2 },
+                    { 179, (byte)3, null, null, 8, 3, (byte)3 },
+                    { 180, (byte)3, null, null, 8, 26, (byte)4 },
+                    { 181, (byte)4, null, null, 8, 27, (byte)1 },
+                    { 182, (byte)4, null, null, 8, 39, (byte)2 },
+                    { 183, (byte)4, null, null, 8, 32, (byte)3 },
+                    { 184, (byte)4, null, null, 8, 36, (byte)4 },
+                    { 185, (byte)5, null, null, 8, 3, (byte)1 },
+                    { 186, (byte)5, null, null, 8, 38, (byte)2 },
+                    { 187, (byte)5, null, null, 8, 37, (byte)3 },
+                    { 188, (byte)5, null, null, 8, 22, (byte)4 },
+                    { 189, (byte)6, null, null, 8, 49, (byte)1 },
+                    { 190, (byte)6, null, null, 8, 38, (byte)2 },
+                    { 191, (byte)6, null, null, 8, 16, (byte)3 },
+                    { 192, (byte)6, null, null, 8, 17, (byte)4 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoFoto",
+                columns: new[] { "Id", "ProdutoId", "ArquivoFoto", "Destaque" },
+                values: new object[,]
+                {
+                    { 1, 1, "/images/produtos/1/1.jpg", true },
+                    { 1, 2, "/images/produtos/2/1.jpg", true },
+                    { 1, 3, "/images/produtos/3/1.jpg", true },
+                    { 1, 4, "/images/produtos/4/1.jpg", true },
+                    { 1, 5, "/images/produtos/5/1.jpg", true },
+                    { 1, 6, "/images/produtos/6/1.jpg", true },
+                    { 1, 7, "/images/produtos/7/1.jpg", true },
+                    { 1, 8, "/images/produtos/8/1.jpg", true },
+                    { 1, 9, "/images/produtos/9/1.jpg", true },
+                    { 1, 10, "/images/produtos/10/1.jpg", true },
+                    { 1, 11, "/images/produtos/11/1.jpg", true },
+                    { 1, 12, "/images/produtos/12/1.jpg", true },
+                    { 2, 5, "/images/produtos/5/2.jpg", false },
+                    { 3, 5, "/images/produtos/5/3.jpg", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoTag",
+                columns: new[] { "ProdutoId", "TagId" },
+                values: new object[,]
+                {
+                    { 1, (byte)1 },
+                    { 2, (byte)5 },
+                    { 3, (byte)4 },
+                    { 4, (byte)3 },
+                    { 5, (byte)5 },
+                    { 6, (byte)5 },
+                    { 7, (byte)2 },
+                    { 8, (byte)3 },
+                    { 9, (byte)4 },
+                    { 10, (byte)5 },
+                    { 11, (byte)1 },
+                    { 12, (byte)2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Usuario",
+                columns: new[] { "UsuarioId", "DataNascimento", "Foto", "Nome" },
+                values: new object[] { "895d2c24-8ef6-45a8-ba73-430b5a730e91", new DateTime(1981, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "/img/users/avatar.png", "José Antonio Gallo Junior" });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoCategoria",
+                columns: new[] { "CategoriaId", "ProdutoId" },
+                values: new object[] { (byte)6, 9 });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoCategoria",
+                columns: new[] { "CategoriaId", "ProdutoId" },
+                values: new object[] { (byte)5, 10 });
+
+            migrationBuilder.InsertData(
+                table: "ProdutoCategoria",
+                columns: new[] { "CategoriaId", "ProdutoId" },
+                values: new object[] { (byte)6, 12 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

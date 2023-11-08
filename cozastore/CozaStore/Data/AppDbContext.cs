@@ -29,6 +29,7 @@ namespace CozaStore.Data;
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        AppDbSeed seed = new(builder);
 
         #region Chave Primária Composta - ProdutoFoto
         builder.Entity<ProdutoFoto>().HasKey(
